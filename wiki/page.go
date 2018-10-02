@@ -97,7 +97,7 @@ func parseCategories(text string) []string {
 			continue
 		}
 		i := strings.IndexAny(line, "|]")
-		if 1 != -1 {
+		if i != -1 {
 			line = line[:i]
 		}
 		line = strings.TrimSpace(line)
