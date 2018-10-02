@@ -41,21 +41,40 @@ func parseLinks(text string) []string {
 	dupCheck := make(map[string]struct{})
 	for {
 		si := strings.Index(text, "[[")
-		ei := strings.Index(text, "]]")
-		if si == -1 || ei == -1 {
+		if si == -1 {
 			break
 		}
-		t := text[si+2 : ei]
+		text = text[si:]
+		c := 0
+		i := 0
+		t := []rune(text)
+		for i+1 < len(t) {
+			if t[i] == '[' && t[i+1] == '[' {
+				c += 1
+				i += 2
+				continue
+			} else if t[i] == ']' && t[i+1] == ']' {
+				c -= 1
+				if c == 0 {
+					break
+				}
+				i += 2
+				continue
+			}
+			i += 1
+		}
+		ei := len(string(t[:i]))
+		s := text[2:ei]
 		text = text[ei+2:]
-		if strings.Contains(t, ":") {
+		if strings.Contains(s, ":") {
 			continue
 		}
-		if i := strings.IndexAny(t, "#|"); i != -1 {
-			t = t[:i]
+		if i := strings.IndexAny(s, "#|"); i != -1 {
+			s = s[:i]
 		}
-		s := strings.TrimSpace(t)
+		s = strings.TrimSpace(s)
 		if _, ok := dupCheck[s]; !ok {
-			rv = append(rv, strings.TrimSpace(t))
+			rv = append(rv, strings.TrimSpace(s))
 			dupCheck[s] = struct{}{}
 		}
 	}
