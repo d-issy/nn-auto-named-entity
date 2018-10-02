@@ -1,8 +1,40 @@
 package wiki
 
 import (
+	"errors"
 	"strings"
+	"sync"
+
+	pb "github.com/nakalab/nn-auto-named-entity/protobuf"
 )
+
+func (p *XMLPage) GetProtoBuf() (*pb.Page, error) {
+	if len(p.Revisions) == 0 {
+		return nil, errors.New("text is not contained")
+	}
+	page := &pb.Page{}
+	page.Id = p.ID
+	page.Title = p.Title
+
+	text := p.Revisions[0].Text
+	wg := &sync.WaitGroup{}
+
+	wg.Add(3)
+	go func() {
+		page.Links = parseLinks(text)
+		wg.Done()
+	}()
+	go func() {
+		page.Categories = parseCategories(text)
+		wg.Done()
+	}()
+	go func() {
+		page.Templates = parseTemplates(text)
+		wg.Done()
+	}()
+	wg.Wait()
+	return page, nil
+}
 
 func parseLinks(text string) []string {
 	rv := make([]string, 0)
