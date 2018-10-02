@@ -65,6 +65,9 @@ func parseLinks(text string) []string {
 		}
 		ei := len(string(t[:i]))
 		s := text[2:ei]
+		if ei+2 >= len(text) {
+			break
+		}
 		text = text[ei+2:]
 		if strings.Contains(s, ":") {
 			continue
@@ -132,6 +135,9 @@ func parseTemplates(text string) []string {
 		}
 		ei := len(string(t[:i]))
 		s := text[2:ei]
+		if ei+2 >= len(text) {
+			break
+		}
 		text = text[ei+2:]
 		if strings.HasPrefix(s, "#") {
 			continue
