@@ -1,0 +1,15 @@
+syntax = "proto3";
+package protobuf;
+
+message Wiki {
+    repeated Page pages = 1;
+}
+
+message Page {
+    uint64 id = 1;
+    string title = 2;
+
+    repeated string links = 3;
+    repeated string categories = 4;
+    repeated string templates = 5;
+}
