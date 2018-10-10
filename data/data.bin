@@ -1,0 +1,262 @@
+
+TopTop
+名前Name
+ 名前_その他
+Name_Other
+人名Person
+神名God
+	組織名Organization
++組織名_その他Organization_Other
+/国際組織名International_Organization
+&	公演組織名Show_Organization
+
+	家系名Family
+	民族名Ethic_Group
+*民族名_その他Ethic_Group_Other
+	国籍名Nationality
+(競技組織名Sports_Organization
+8競技組織名_その他Sports_Organization_Other
+2プロ競技組織名Pro_Sports_Organization
+%競技リーグ名Sports_League
+	法人名Corporation
+*法人名_その他Corporation_Other
+	企業名Compnay
+(企業グループ名Compnay_Group
+.政治的組織名Political_Organization
+>政治的組織名_その他Political_Organization_Other
+政府組織名
+Government
+	政党名Political_Party
+	内閣名Cabinet
+	軍隊名Military
+地名Locagion
+$地名_その他Location_Other
+	温泉名Spa
+GPEGPE
+ GPE_その他	GPE_Other
+!市区町村名City
+"郡名County
+ #都道府県州名Province
+$国名Country
+%	地域名Region
+%&地域名_その他Region_Other
+''大陸地域名Continental_Region
+$(国内地域名Domestic_Region
+ )	地形名Geological_Region
+0*地形名_その他Geological_Region_Other
++	山地名Mountain
+,島名Island
+-	河川名River
+.	湖沼名Lake
+/	海洋名Sea
+0湾名Bay
+1	天体名Astral_Body
+*2天体名_その他Astral_Body_Other
+3	恒星名Star
+4	惑星名Planet
+5	星座名Constellation
+6アドレスAddress
+)7アドレス_その他Address_Other
+ 8郵便住所Postal_Address
+9電話番号Phone_Number
+:電子メイルEmail
+;URLURL
+<	施設名Facility
+'=施設名_その他Facility_Other
+">施設部分名Facility_Part
+#?	遺跡名Archaeological_Place
+3@遺跡名_その他Archaeological_Place_Other
+A	古墳名Tumulus
+BGOEGOE
+CGOE_その他	GOE_Other
+'D公共機関名Public_Institution
+E	学校名School
+'F研究機関名Research_Institute
+G取引所名Market
+H	公園名Park
+$I競技施設名Sports_Facility
+J美術博物館名Museum
+K動植物園名Zoo
+#L遊園施設名Amusement_Park
+M	劇場名Theater
+N神社寺名Worship_Place
+O停車場名Car_Stop
+P電車駅名Station
+Q	空港名Airport
+R港名Port
+S	路線名Line
+#T路線名_その他
+Line_Other
+U電車路線名Railroad
+V	道路名Road
+W	運河名Canal
+X	航路名Water_Route
+Yトンネル名Tunnel
+Z橋名Bridge
+[	製品名Product
+&\製品名_その他Product_Other
+]	材料名Material
+^	衣類名Clothing
+_	貨幣名
+Money_Form
+`医薬品名Drug
+a	武器名Weapon
+b株名Stock
+c賞名Award
+d	勲章名
+Decoration
+e罪名Offense
+f便名Service
+g	等級名Class
+$hキャラクター名	Character
+i識別番号	ID_Number
+j乗り物名Vehicle
+)k乗り物名_その他Vehicle_Other
+l車名Car
+m	列車名Train
+n飛行機名Aircraft
+o宇宙船名	Spaceship
+p船名Ship
+q食べ物名Food
+&r食べ物名_その他
+Food_Other
+s	料理名Dish
+t芸術作品名Art
+(u芸術作品名_その他	Art_Other
+v	絵画名Picture
+ w	番組名Broadcast_Program
+x	映画名Movie
+y	公演名Show
+z	音楽名Music
+{	文学名Book
+|出版物名Printing
+*}出版物名_その他Printing_Other
+~	新聞名	Newspaper
+	雑誌名Magazine
+%�主義方式名Doctrine_Method
+5�主義方式名_その他Doctrine_Method_Other
+�	文化名Culture
+�	宗教名Religion
+�	学問名Academic
+�	競技名Sport
+�	流派名Style
+�	運動名Movement
+�	理論名Theory
+�製作計画名Plan
+�	規則名Rule
+$�規則名_その他
+Rule_Other
+�	条約名Treaty
+�	法令名Law
+�	称号名Title
+%�称号名_その他Title_Other
+'�地位職業名Position_Vocation
+�	言語名Language
+(�言語名_その他Language_Other
+!�	国語名National_Language
+�	単位名Unit
+$�単位名_その他
+Unit_Other
+�通貨単位名Currency
+�イベント名Event
++�イベント名_その他Event_Other
+�催し物名Occasion
++�催し物名_その他Occasion_Other
+"�	例祭名Religious_Festival
+�協議会名Game
+�	会議名
+Conference
+�事故事件名Incident
+.�事故事件名_その他Incident_Other
+�	戦争名War
+(�自然現象名Natural_Phonomenon
+8�自然現象名_その他Natural_Phenomenon_Other
+&�自然災害名Natural_Disaster
+�	地震名
+Earthquake
+!�自然物名Natural_Object
+1�自然物名_その他Natural_Object_Other
+�	元素名Element
+�化合物名Compound
+�	鉱物名Mineral
+�	生物名Living_Thing
+,�生物名_その他Living_Thing_Other
+�真菌生物名Fungus
+4�軟体動物_節足動物名Mollusc_Arthropod
+�昆虫類名Insect
+�	魚類名Fish
+�両生類名Amphibia
+�爬虫類名Reptile
+�	鳥類名Bird
+�哺乳類名Mammal
+�	植物名Flora
+'�生物部位名Living_Thing_Part
+7�生物部位名_その他Living_Thing_Part_Other
+!�動物部位名Animal_Part
+ �植物部位名
+Flora_Part
+�	病気名Disease
+'�病気名_その他Disease_Other
+$�動物病気名Animal_Disease
+�色名Color
+"�色名_その他Color_Other
+�自然色名Nature_Color
+�時間表現Time_Top
++�時間表現_その他Time_Top_Other
+�時間Time_x
+"�時間_その他Timex_Other
+�時刻表現Time
+�日付表現Date
+�曜日表現Day_Of_Week
+�時代表現Era
+�期間Period
+$�期間_その他Periodx_Other
+�時刻期間Period_Time
+�日数期間
+Period_Day
+�週数期間Period_Week
+�月数期間Period_Month
+�年数期間Period_Year
+�数値表現Numex
+(�数値表現_その他Numex_Other
+�金額表現Money
+�	株指標Stock_Index
+�ポイントPoint
+�割合表現Percent
+!�倍数表現Multiplication
+�頻度表現	Frequency
+�年齢Age
+�学齢
+School_Age
+�序数Ordinal_Number
+�順位表現Rank
+&�緯度経度Latitude_Longtitude
+�寸法表現Measurement
+.�寸法表現_その他Measurement_Other
+�長さPhysical_Extent
+�面積Space
+�体積Volume
+�重量Weight
+�速度Speed
+�密度	Intensity
+�温度Temperature
+�カロリーCalorie
+�震度Seismic_Intensity
+-�マグニチュードSeismic_Magnitude
+�個数Contx
+"�個数_その他Contx_Other
+�人数N_Person
+�	組織数N_Organization
+�	場所数
+N_Location
+*�場所数_その他N_Location_Other
+�国数	N_Country
+�	施設数
+N_Facility
+�	製品数	N_Product
+�イベント数N_Event
+#�自然物数N_Natural_Object
+3�自然物数_その他N_Natural_Object_Other
+�	動物数N_Animal
+�	植物数N_flora
+ �該当項目なしNoEntry

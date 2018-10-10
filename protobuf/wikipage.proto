@@ -12,4 +12,15 @@ message Page {
     repeated string links = 3;
     repeated string categories = 4;
     repeated string templates = 5;
+    repeated uint32 namedEntityIDs = 6;
+}
+
+message Data {
+    repeated NamedEntity namedEntities = 1;
+}
+
+message NamedEntity {
+    uint32 id = 1 ;
+    string jpName = 2;
+    string enName = 3;
 }
