@@ -1,4 +1,4 @@
-data/wiki.bit:
+data/wiki.bin:
 	@echo started parser of xml file
 	@bzcat $(xmlfile) | go run cmd/xml_to_proto/main.go > logs/xml_to_proto.log
 	@echo end parser
@@ -8,11 +8,11 @@ data/stat.bin:
 	@go run cmd/statistics/main.go
 	@echo done creating statistic file
 
-xml2proto: data/wiki.bit
+xml2proto: data/wiki.bin
 stat: xml2proto data/stat.bin
 
 clean:
-	@rm -rfv data/wiki.bit data/stat.bit logs/%.log
+	@rm -rfv data/wiki.bin data/stat.bin logs/%.log
 
 deps:
 	@go get -v github.com/golang/protobuf/proto

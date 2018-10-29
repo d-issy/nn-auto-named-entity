@@ -57,7 +57,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	if err := ioutil.WriteFile("data/wiki.bit", out, 0644); err != nil {
+	if err := ioutil.WriteFile("data/wiki.bin", out, 0644); err != nil {
 		log.Fatalln(err)
 	}
 }

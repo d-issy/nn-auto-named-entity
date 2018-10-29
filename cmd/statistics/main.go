@@ -123,7 +123,7 @@ func main() {
 	wg := &sync.WaitGroup{}
 
 	wiki := &pb.Wiki{}
-	in, err := ioutil.ReadFile(filepath.Join("data", "wiki.bit"))
+	in, err := ioutil.ReadFile(filepath.Join("data", "wiki.bin"))
 	if err != nil {
 		log.Fatalf("file read error: ", err)
 	}
@@ -184,7 +184,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	if err := ioutil.WriteFile("data/stat.bit", out, 0644); err != nil {
+	if err := ioutil.WriteFile("data/stat.bin", out, 0644); err != nil {
 		log.Fatalln(err)
 	}
 }
