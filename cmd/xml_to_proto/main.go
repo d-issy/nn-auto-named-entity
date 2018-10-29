@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"runtime"
 	"sync"
 
 	"github.com/golang/protobuf/proto"
@@ -13,7 +14,8 @@ import (
 )
 
 func main() {
-	worker := make(chan struct{}, 4)
+	cpuNum := runtime.NumCPU()
+	worker := make(chan struct{}, cpuNum)
 	wg := &sync.WaitGroup{}
 	mu := new(sync.RWMutex)
 
