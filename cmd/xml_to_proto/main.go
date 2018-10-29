@@ -36,6 +36,9 @@ func main() {
 		if xmlPage.Namespace != 0 {
 			continue
 		}
+		if count > 300 {
+			break
+		}
 		wg.Add(1)
 		worker <- struct{}{}
 		go func() {
