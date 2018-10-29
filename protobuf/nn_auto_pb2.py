@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='protobuf',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\rnn_auto.proto\x12\x08protobuf\"n\n\x04Wiki\x12(\n\x05pages\x18\x01 \x03(\x0b\x32\x19.protobuf.Wiki.PagesEntry\x1a<\n\nPagesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1d\n\x05value\x18\x02 \x01(\x0b\x32\x0e.protobuf.Page:\x02\x38\x01\"\x82\x01\n\x04Page\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05title\x18\x02 \x01(\t\x12\x11\n\tnamespace\x18\x03 \x01(\r\x12\r\n\x05links\x18\x04 \x03(\t\x12\x12\n\ncategories\x18\x05 \x03(\t\x12\x11\n\ttemplates\x18\x06 \x03(\t\x12\x16\n\x0enamedEntityIDs\x18\x07 \x03(\r\"\x96\x02\n\x04\x44\x61ta\x12\x38\n\rnamedEntities\x18\x01 \x03(\x0b\x32!.protobuf.Data.NamedEntitiesEntry\x12\x34\n\x0btaggedPages\x18\x02 \x03(\x0b\x32\x1f.protobuf.Data.TaggedPagesEntry\x1aK\n\x12NamedEntitiesEntry\x12\x0b\n\x03key\x18\x01 \x01(\r\x12$\n\x05value\x18\x02 \x01(\x0b\x32\x15.protobuf.NamedEntity:\x02\x38\x01\x1aQ\n\x10TaggedPagesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12,\n\x05value\x18\x02 \x01(\x0b\x32\x1d.protobuf.TaggedNamedEntities:\x02\x38\x01\"9\n\x0bNamedEntity\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0e\n\x06jpName\x18\x02 \x01(\t\x12\x0e\n\x06\x65nName\x18\x03 \x01(\t\"$\n\x13TaggedNamedEntities\x12\r\n\x05\x61ttrs\x18\x01 \x03(\rb\x06proto3')
+  serialized_pb=_b('\n\rnn_auto.proto\x12\x08protobuf\"n\n\x04Wiki\x12(\n\x05pages\x18\x01 \x03(\x0b\x32\x19.protobuf.Wiki.PagesEntry\x1a<\n\nPagesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1d\n\x05value\x18\x02 \x01(\x0b\x32\x0e.protobuf.Page:\x02\x38\x01\"\x82\x01\n\x04Page\x12\n\n\x02id\x18\x01 \x01(\x04\x12\r\n\x05title\x18\x02 \x01(\t\x12\x11\n\tnamespace\x18\x03 \x01(\r\x12\r\n\x05links\x18\x04 \x03(\t\x12\x12\n\ncategories\x18\x05 \x03(\t\x12\x11\n\ttemplates\x18\x06 \x03(\t\x12\x16\n\x0enamedEntityIDs\x18\x07 \x03(\r\"\x96\x02\n\x04\x44\x61ta\x12\x38\n\rnamedEntities\x18\x01 \x03(\x0b\x32!.protobuf.Data.NamedEntitiesEntry\x12\x34\n\x0btaggedPages\x18\x02 \x03(\x0b\x32\x1f.protobuf.Data.TaggedPagesEntry\x1aK\n\x12NamedEntitiesEntry\x12\x0b\n\x03key\x18\x01 \x01(\r\x12$\n\x05value\x18\x02 \x01(\x0b\x32\x15.protobuf.NamedEntity:\x02\x38\x01\x1aQ\n\x10TaggedPagesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12,\n\x05value\x18\x02 \x01(\x0b\x32\x1d.protobuf.TaggedNamedEntities:\x02\x38\x01\"9\n\x0bNamedEntity\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0e\n\x06jpName\x18\x02 \x01(\t\x12\x0e\n\x06\x65nName\x18\x03 \x01(\t\"$\n\x13TaggedNamedEntities\x12\r\n\x05\x61ttrs\x18\x01 \x03(\r\"{\n\nStatistics\x12%\n\ncategories\x18\x01 \x03(\x0b\x32\x11.protobuf.Counter\x12 \n\x05links\x18\x02 \x03(\x0b\x32\x11.protobuf.Counter\x12$\n\ttemplates\x18\x03 \x03(\x0b\x32\x11.protobuf.Counter\"%\n\x07\x43ounter\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05\x63ount\x18\x02 \x01(\x04\x62\x06proto3')
 )
 
 
@@ -353,6 +353,89 @@ _TAGGEDNAMEDENTITIES = _descriptor.Descriptor(
   serialized_end=648,
 )
 
+
+_STATISTICS = _descriptor.Descriptor(
+  name='Statistics',
+  full_name='protobuf.Statistics',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='categories', full_name='protobuf.Statistics.categories', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='links', full_name='protobuf.Statistics.links', index=1,
+      number=2, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='templates', full_name='protobuf.Statistics.templates', index=2,
+      number=3, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=650,
+  serialized_end=773,
+)
+
+
+_COUNTER = _descriptor.Descriptor(
+  name='Counter',
+  full_name='protobuf.Counter',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='protobuf.Counter.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='count', full_name='protobuf.Counter.count', index=1,
+      number=2, type=4, cpp_type=4, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=775,
+  serialized_end=812,
+)
+
 _WIKI_PAGESENTRY.fields_by_name['value'].message_type = _PAGE
 _WIKI_PAGESENTRY.containing_type = _WIKI
 _WIKI.fields_by_name['pages'].message_type = _WIKI_PAGESENTRY
@@ -362,11 +445,16 @@ _DATA_TAGGEDPAGESENTRY.fields_by_name['value'].message_type = _TAGGEDNAMEDENTITI
 _DATA_TAGGEDPAGESENTRY.containing_type = _DATA
 _DATA.fields_by_name['namedEntities'].message_type = _DATA_NAMEDENTITIESENTRY
 _DATA.fields_by_name['taggedPages'].message_type = _DATA_TAGGEDPAGESENTRY
+_STATISTICS.fields_by_name['categories'].message_type = _COUNTER
+_STATISTICS.fields_by_name['links'].message_type = _COUNTER
+_STATISTICS.fields_by_name['templates'].message_type = _COUNTER
 DESCRIPTOR.message_types_by_name['Wiki'] = _WIKI
 DESCRIPTOR.message_types_by_name['Page'] = _PAGE
 DESCRIPTOR.message_types_by_name['Data'] = _DATA
 DESCRIPTOR.message_types_by_name['NamedEntity'] = _NAMEDENTITY
 DESCRIPTOR.message_types_by_name['TaggedNamedEntities'] = _TAGGEDNAMEDENTITIES
+DESCRIPTOR.message_types_by_name['Statistics'] = _STATISTICS
+DESCRIPTOR.message_types_by_name['Counter'] = _COUNTER
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Wiki = _reflection.GeneratedProtocolMessageType('Wiki', (_message.Message,), dict(
@@ -427,6 +515,20 @@ TaggedNamedEntities = _reflection.GeneratedProtocolMessageType('TaggedNamedEntit
   # @@protoc_insertion_point(class_scope:protobuf.TaggedNamedEntities)
   ))
 _sym_db.RegisterMessage(TaggedNamedEntities)
+
+Statistics = _reflection.GeneratedProtocolMessageType('Statistics', (_message.Message,), dict(
+  DESCRIPTOR = _STATISTICS,
+  __module__ = 'nn_auto_pb2'
+  # @@protoc_insertion_point(class_scope:protobuf.Statistics)
+  ))
+_sym_db.RegisterMessage(Statistics)
+
+Counter = _reflection.GeneratedProtocolMessageType('Counter', (_message.Message,), dict(
+  DESCRIPTOR = _COUNTER,
+  __module__ = 'nn_auto_pb2'
+  # @@protoc_insertion_point(class_scope:protobuf.Counter)
+  ))
+_sym_db.RegisterMessage(Counter)
 
 
 _WIKI_PAGESENTRY._options = None

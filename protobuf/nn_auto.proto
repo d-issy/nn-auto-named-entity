@@ -30,3 +30,14 @@ message NamedEntity {
 message TaggedNamedEntities {
     repeated uint32 attrs = 1;
 }
+
+message Statistics {
+    repeated Counter categories = 1;
+    repeated Counter links = 2;
+    repeated Counter templates = 3;
+}
+
+message Counter {
+    string key = 1;
+    uint64 count = 2;
+}
