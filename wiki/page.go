@@ -15,6 +15,7 @@ func (p *XMLPage) GetProtoBuf() (*pb.Page, error) {
 	page := &pb.Page{}
 	page.Id = p.ID
 	page.Title = p.Title
+	page.Namespace = uint32(p.Namespace)
 
 	text := p.Revisions[0].Text
 	wg := &sync.WaitGroup{}

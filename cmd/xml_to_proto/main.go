@@ -13,10 +13,13 @@ import (
 )
 
 func main() {
-	worker := make(chan struct{}, 2)
+	worker := make(chan struct{}, 4)
 	wg := &sync.WaitGroup{}
+	mu := new(sync.RWMutex)
 
 	pbWiki := &pb.Wiki{}
+	pbWiki.Pages = make(map[string]*pb.Page)
+
 	parser, err := wiki.NewXMLParser(os.Stdin)
 	if err != nil {
 		log.Fatal(err)
@@ -32,14 +35,16 @@ func main() {
 			continue
 		}
 		wg.Add(1)
+		worker <- struct{}{}
 		go func() {
 			defer wg.Done()
-			worker <- struct{}{}
+			count += 1
 			a, err := xmlPage.GetProtoBuf()
 			if err == nil {
-				count += 1
 				fmt.Println(count, a.Title)
-				pbWiki.Pages = append(pbWiki.Pages, a)
+				mu.Lock()
+				pbWiki.Pages[a.Title] = a
+				mu.Unlock()
 			}
 			<-worker
 		}()
