@@ -18,10 +18,15 @@ message Page {
 
 message Data {
     map<uint32, NamedEntity> namedEntities = 1;
+    map<string, TaggedNamedEntities> taggedPages = 2;
 }
 
 message NamedEntity {
     uint32 id = 1 ;
     string jpName = 2;
     string enName = 3;
+}
+
+message TaggedNamedEntities {
+    repeated uint32 attrs = 1;
 }
