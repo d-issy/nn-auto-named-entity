@@ -4,7 +4,7 @@ import numpy as np
 import tensorflow as tf
 
 import protobuf.nn_auto_pb2 as pb
-from lib import get_char
+from mylib import get_char
 
 # element n
 EN = 192
