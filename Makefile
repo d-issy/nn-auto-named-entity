@@ -8,11 +8,15 @@ data/stat.bin:
 	@go run cmd/statistics/main.go
 	@echo done creating statistic file
 
+data/tf/title_filters.index:
+	@python cmd/create_filters/main.py
+
 xml2proto: data/wiki.bin
 stat: xml2proto data/stat.bin
+create/filter: data/tf/title_filters.index
 
 clean:
-	@rm -rfv data/wiki.bin data/stat.bin logs/%.log
+	@rm -rfv data/wiki.bin data/stat.bin data/tf logs/%.log
 
 deps:
 	@go get -v github.com/golang/protobuf/proto
