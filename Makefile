@@ -11,10 +11,13 @@ data/stat.bin:
 data/tf/title_filters.index:
 	@python cmd/create_filters/main.py
 
+data/npy:
+	@mkdir data/npy
+
 xml2proto: data/wiki.bin
 stat: xml2proto data/stat.bin
 create/filter: data/tf/title_filters.index
-create/vector:
+create/vector: data/npy
 	@PYTHONPATH=. python cmd/create_vector/main.py
 
 clean:
