@@ -14,9 +14,11 @@ data/tf/title_filters.index:
 xml2proto: data/wiki.bin
 stat: xml2proto data/stat.bin
 create/filter: data/tf/title_filters.index
+create/vector:
+	@PYTHONPATH=. python cmd/create_vector/main.py
 
 clean:
-	@rm -rfv data/wiki.bin data/stat.bin data/tf logs/%.log
+	@rm -rfv data/wiki.bin data/stat.bin data/tf data/np logs/%.log
 
 deps:
 	@go get -v github.com/golang/protobuf/proto
