@@ -8,15 +8,19 @@ data/stat.bin:
 	@go run cmd/statistics/main.go
 	@echo done creating statistic file
 
-data/tf/title_filters.index:
-	@python cmd/create_filters/main.py
+data/nn:
+	@mkdir data/nn
 
-data/npy:
-	@mkdir data/npy
+data/nn/filters.bin: data/nn
+	@PYTHONPATH=. python cmd/generate_filters/main.py
+
+data/nn/cnv_table.bin: data/nn
+	@PYTHONPATH=. python cmd/cnv_table/main.py
 
 xml2proto: data/wiki.bin
 stat: xml2proto data/stat.bin
-create/filter: data/tf/title_filters.index
+generate/filter: data/nn/filters.bin
+generate/cnv_table: data/nn/cnv_table.bin
 create/vector: data/npy
 	@PYTHONPATH=. python cmd/create_vector/main.py
 
