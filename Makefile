@@ -17,12 +17,14 @@ data/nn/filters.bin: data/nn
 data/nn/cnv_table.bin: data/nn
 	@PYTHONPATH=. python cmd/cnv_table/main.py
 
+data/nn/vector.npy: data/nn
+	@PYTHONPATH=. python cmd/create_vector/main.py
+
 xml2proto: data/wiki.bin
 stat: xml2proto data/stat.bin
 generate/filter: data/nn/filters.bin
 generate/cnv_table: data/nn/cnv_table.bin
-create/vector: data/npy
-	@PYTHONPATH=. python cmd/create_vector/main.py
+create/vector: data/nn/vector.npy
 
 clean:
 	@rm -rfv data/wiki.bin data/stat.bin data/tf data/np logs/%.log

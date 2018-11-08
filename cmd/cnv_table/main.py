@@ -21,20 +21,15 @@ with open('data/wiki.bin', 'rb') as f:
 # create cnv tables
 title2id = defaultdict(lambda: len(title2id))
 id2title = {}
-labels = {
-    'pids': [],
-    'nid': []
-}
+labels = []
 
-for title in wiki.pages.keys():
+for title in data.taggedPages.keys():
     id2title[title2id[title]] = title
-    if title in data.taggedPages:
-        page = data.taggedPages[title]
-        label_on_hot = np.zeros(230)
-        for a in page.attrs:
-            label_on_hot[a-1] = 1
-        labels['pids'].append(title2id[title])
-        labels['nid'].append(label_on_hot.tolist())
+    page = data.taggedPages[title]
+    label_on_hot = np.zeros(230)
+    for a in page.attrs:
+        label_on_hot[a-1] = 1
+    labels.append(label_on_hot.tolist())
 
 
 # save datum
