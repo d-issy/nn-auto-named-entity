@@ -20,11 +20,15 @@ data/nn/cnv_table.bin: data/nn
 data/nn/vector.npy: data/nn
 	@PYTHONPATH=. python cmd/create_vector/main.py
 
+data/nn/nn_data.bin: data/nn
+	@PYTHONPATH=. python cmd/learn/main.py
+
 xml2proto: data/wiki.bin
 stat: xml2proto data/stat.bin
 generate/filter: data/nn/filters.bin
 generate/cnv_table: data/nn/cnv_table.bin
 create/vector: data/nn/vector.npy
+learn: data/nn/nn_data.bin
 
 clean:
 	@rm -rfv data/wiki.bin data/stat.bin data/tf data/np logs/%.log
