@@ -26,7 +26,7 @@ pre_vector = {}
 
 with ThreadPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
     worker_to_page = {executor.submit(
-        wiki2vec, i, pages[t]): t for i, t in enumerate(title2id.keys())}
+        wiki2vec, pages[t], i): t for i, t in enumerate(title2id.keys())}
     for page in as_completed(worker_to_page):
         title = worker_to_page[page]
         try:

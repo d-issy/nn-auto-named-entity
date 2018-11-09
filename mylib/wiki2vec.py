@@ -5,6 +5,7 @@ import numpy as np
 import tensorflow as tf
 
 import protobuf.nn_auto_pb2 as pb
+
 from .get_char import get_char
 
 # disable cuda
@@ -79,8 +80,9 @@ def cnv_title(title_text):
     return out
 
 
-def wiki2vec(i, page):
-    print(i, page.title)
+def wiki2vec(page, i=None):
+    if i is not None:
+        print(i, page.title)
     #  -- title
     tv = cnv_title(page.title)
     #  -- cat
