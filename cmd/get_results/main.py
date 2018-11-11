@@ -1,5 +1,8 @@
+import json
+import multiprocessing
 import pickle
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import numpy as np
 
@@ -39,20 +42,50 @@ v = {
 }
 
 
+def result(page, i=None):
+    global net
+    if i is not None:
+        print(i, page.title)
+    vec = wiki2vec(page)
+    preds = net.predict(vec, 0.9)
+
+    nes = []
+    for p in preds:
+        d = data.namedEntities[p+1].jpName
+        nes.append(d)
+    return nes
+
+
 page2ne = {}
 ne2page = defaultdict(lambda: [])
 
+# get result
 with Network(v) as net:
-    for i, title in enumerate(pages.keys()):
-        print(i, title)
-        page = pages[title]
-        vec = wiki2vec(page)
-        preds = net.predict(vec, 0.9)
+    L = 3000
+    step = 0
+    a, b = [], list(pages.keys())
+    while len(b) > 0:
+        a, b = b[:L], b[L:]
+        print('step', step)
+        with ThreadPoolExecutor(max_workers=multiprocessing.cpu_count()) as executor:
+            worker_to_page = {executor.submit(
+                result, pages[t], step*L+i): t for i, t in enumerate(a)}
+            for page in as_completed(worker_to_page):
+                title = worker_to_page[page]
+                try:
+                    nes = page.result()
+                except Exception as e:
+                    print('error:', e)
+                else:
+                    if len(nes) > 0:
+                        page2ne[title] = nes
+                        for n in nes:
+                            ne2page[n] = title
+            executor.shutdown(wait=True)
+        print()
+        step += 1
 
-        nes = []
-        for p in preds:
-            d = data.namedEntities[p+1].jpName
-            ne2page[d].append(page.title)
-            nes.append(d)
-        if len(nes) > 0:
-            page2ne[page.title] = nes
+ne2page = dict(ne2page)
+
+with open('data/result.json', 'rb') as f:
+    json.dump({'page2ne': page2ne, 'ne2page': ne2page}, f)
