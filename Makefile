@@ -23,12 +23,16 @@ data/nn/vector.npy: data/nn
 data/nn/nn_data.bin: data/nn
 	@PYTHONPATH=. python cmd/learn/main.py
 
+data/result.json:
+	@PYTHONPATH=. python cmd/get_results/main.py
+
 xml2proto: data/wiki.bin
 stat: xml2proto data/stat.bin
 generate/filter: data/nn/filters.bin
 generate/cnv_table: data/nn/cnv_table.bin
 create/vector: data/nn/vector.npy
 learn: data/nn/nn_data.bin
+result: data/result.json
 
 clean:
 	@rm -rfv data/wiki.bin data/stat.bin data/tf data/np logs/%.log
