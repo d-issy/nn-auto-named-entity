@@ -47,7 +47,7 @@ def result(page, i=None):
     if i is not None:
         print(i, page.title)
     vec = wiki2vec(page)
-    preds = net.predict(vec, 0.9)
+    preds = net.predict(vec, 0.95)
 
     nes = []
     for p in preds:
@@ -80,12 +80,12 @@ with Network(v) as net:
                     if len(nes) > 0:
                         page2ne[title] = nes
                         for n in nes:
-                            ne2page[n] = title
+                            ne2page[n].append(title)
             executor.shutdown(wait=True)
         print()
         step += 1
 
 ne2page = dict(ne2page)
 
-with open('data/result.json', 'rb') as f:
+with open('data/result.json', 'w') as f:
     json.dump({'page2ne': page2ne, 'ne2page': ne2page}, f)
