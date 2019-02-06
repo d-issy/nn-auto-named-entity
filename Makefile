@@ -33,6 +33,8 @@ generate/cnv_table: data/nn/cnv_table.bin
 create/vector: data/nn/vector.npy
 learn: data/nn/nn_data.bin
 result: data/result.json
+auc:
+	@PYTHONPATH=. python cmd/get_auc_results/main.py $(NID)
 
 clean:
 	@rm -rfv data/wiki.bin data/stat.bin data/tf data/np logs/%.log

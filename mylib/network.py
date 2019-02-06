@@ -27,7 +27,7 @@ class Network:
             self._loss = self._t * -tf.log(tf.clip_by_value(self._y, 1e-10, 1.0)) +\
                 (1-self._t) * -tf.log(tf.clip_by_value(1 - self._y, 1e-10, 1.0))
             self._train_step = tf.train.AdamOptimizer().minimize(self._loss)
-            _, self._auc = tf.metrics.auc(self._t, self._y)
+        _, self._auc = tf.metrics.auc(self._t, self._y)
 
         # session init
         self._sess.run(tf.global_variables_initializer())
@@ -72,6 +72,15 @@ class Network:
                 print(i, auc, 'down')
 
             self.aucs.append(auc)
+
+    def get_auc(self,vector,labels):
+        x = self._x
+        y = self._t
+        auc = self._sess.run(self._auc, feed_dict={
+            x: vector,
+            y: labels,
+        })
+        return auc
 
     def predict(self, x, threshold=0.1):
         out = self._sess.run(self._y, feed_dict={self._x: x})
